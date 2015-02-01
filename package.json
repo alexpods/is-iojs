@@ -1,6 +1,6 @@
 {
   "name": "is-iojs",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Determines if runtime is iojs",
   "main": "index.js",
   "repository": {
