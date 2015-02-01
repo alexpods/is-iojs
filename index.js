@@ -5,14 +5,26 @@ module.exports = function() {
     return _isIo;
 };
 
+var safeCheck = null;
 module.exports.safe = function() {
+    if (safeCheck) {
+        return safeCheck;
+    }
     var isIo = _isIo;
 
-     !~['v1.0.0','v1.0.1'].indexOf(version) && require('child_process').exec('node -h', function(err, help) {
+    var fs   = require('fs');
+    var path = require('path');
+    var temp = path.join(process.cwd(), '.is-iojs-' + Math.random());
+
+     !~['v1.0.0','v1.0.1'].indexOf(version) && require('child_process').exec('node -h && echo "done" > ' + temp, function(err, help) {
         if (!err) isIo = /iojs/m.test(help);
     });
 
-    return function() {
+    while (!(fs.existsSync(temp)));
+
+    fs.unlinkSync(temp);
+
+    return safeCheck = function() {
         return isIo;
     };
 };
