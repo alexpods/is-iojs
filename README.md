@@ -13,7 +13,7 @@ if (isIojs()) { /* runtime is iojs */ } else { /* runtime is node */ }
 2.Based on result of `node -h` help message:
 
 ```js
-var isIo = require('is-iojs').safe(); // safe determination, based on result of `node -h` help message
+var isIo = require('is-iojs').safe();
 
 if (isIojs()) { /* runtime is iojs */ } else { /* runtime is node */ } 
 ```
