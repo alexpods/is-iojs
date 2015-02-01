@@ -1,4 +1,4 @@
-Determines if runtime is iojs or not. 
+Determines if runtime is `iojs` or not. 
 
 There are two logics:
 
