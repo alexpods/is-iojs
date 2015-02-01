@@ -5,7 +5,7 @@ module.exports = function() {
     return _isIo;
 };
 
-module.exports.safe = function self() {
+module.exports.safe = function() {
     var isIo = _isIo;
 
      !~['v1.0.0','v1.0.1'].indexOf(version) && require('child_process').exec('node -h', function(err, help) {

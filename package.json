@@ -1,7 +1,7 @@
 {
   "name": "is-iojs",
   "version": "0.1.0",
-  "description": "Determine if runtime is iojs",
+  "description": "Determines if runtime is iojs",
   "main": "index.js",
   "repository": {
     "type": "git",
