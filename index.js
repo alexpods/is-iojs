@@ -1,12 +1,14 @@
-var version = process.version;
-var _isIo = parseInt(version.match(/^v(\d)/)[1]) >= 1;
+var deprecate = require('util').deprecate;
+var version   = process.version;
+var _isIo     = parseInt(version.match(/^v(\d)/)[1]) >= 1;
 
 module.exports = function() {
     return _isIo;
 };
 
 var safeCheck = null;
-module.exports.safe = function() {
+
+module.exports.reliable = function() {
     if (safeCheck) {
         return safeCheck;
     }
@@ -32,3 +34,5 @@ module.exports.safe = function() {
         return isIo;
     };
 };
+
+module.exports.safe = deprecate(module.exports.reliable, '.safe() method is deprecated. Use .reliable() instead of it.');
