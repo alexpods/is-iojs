@@ -12,18 +12,21 @@ module.exports.safe = function() {
     }
     var isIo = _isIo;
 
-    var fs    = require('fs');
-    var path  = require('path');
-    var temp  = path.join(process.cwd(), '.is-iojs-' + Math.random());
-    var epath = process.execPath;
+    if (!!~['v1.0.0','v1.0.1'].indexOf(version)) {
+        var fs    = require('fs');
+        var path  = require('path');
+        var exec  = require('child_process').exec;
 
-     !~['v1.0.0','v1.0.1'].indexOf(version) && require('child_process').exec(epath + ' -h && echo "done" > ' + temp, function(err, help) {
-        if (!err) isIo = /iojs/m.test(help);
-    });
+        var temp  = path.join(process.cwd(), '.is-iojs-' + Math.random());
+        var epath = process.execPath;
 
-    while (!(fs.existsSync(temp)));
+        exec(epath + ' -h && echo "done" > ' + temp, function(err, help) {
+            if (!err) isIo = /iojs/m.test(help);
+        });
 
-    fs.unlinkSync(temp);
+        while (!(fs.existsSync(temp))) {}
+        fs.unlinkSync(temp);
+    }
 
     return safeCheck = function() {
         return isIo;
