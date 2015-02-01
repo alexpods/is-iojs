@@ -1,0 +1,21 @@
+{
+  "name": "is-iojs",
+  "version": "0.1.0",
+  "description": "Determine if runtime is iojs",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexpods/is-iojs"
+  },
+  "keywords": [
+    "iojs",
+    "runtime",
+    "check"
+  ],
+  "author": "Aleksey Podskrebyshev <aleksey.podskrebyshev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexpods/is-iojs/issues"
+  },
+  "homepage": "https://github.com/alexpods/is-iojs"
+}
