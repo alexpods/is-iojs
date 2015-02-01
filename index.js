@@ -12,11 +12,12 @@ module.exports.safe = function() {
     }
     var isIo = _isIo;
 
-    var fs   = require('fs');
-    var path = require('path');
-    var temp = path.join(process.cwd(), '.is-iojs-' + Math.random());
+    var fs    = require('fs');
+    var path  = require('path');
+    var temp  = path.join(process.cwd(), '.is-iojs-' + Math.random());
+    var epath = process.execPath;
 
-     !~['v1.0.0','v1.0.1'].indexOf(version) && require('child_process').exec('node -h && echo "done" > ' + temp, function(err, help) {
+     !~['v1.0.0','v1.0.1'].indexOf(version) && require('child_process').exec(epath + ' -h && echo "done" > ' + temp, function(err, help) {
         if (!err) isIo = /iojs/m.test(help);
     });
 
