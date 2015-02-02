@@ -1,6 +1,6 @@
 var deprecate = require('util').deprecate;
 var version   = process.version;
-var _isIo     = parseInt(version.match(/^v(\d)/)[1]) >= 1;
+var _isIo     = parseInt(version.match(/^v(\d+)\./)[1]) >= 1;
 
 module.exports = function() {
     return _isIo;
@@ -19,15 +19,19 @@ module.exports.reliable = function() {
         var path  = require('path');
         var exec  = require('child_process').exec;
 
-        var temp  = path.join(process.cwd(), '.is-iojs-ey4Be6vDPrGfXGey4Be6vDPrGfXG');
-        var epath = process.execPath;
+        var helpFile = path.join(process.cwd(), '.is-iojs-help-ey4Be6vDPrGfXGey4Be6vDPrGfXG');
+        var doneFile = path.join(process.cwd(), '.is-iojs-done-ey4Be6vDPrGfXGey4Be6vDPrGfXG');
+        var execPath = process.execPath;
 
-        exec(epath + ' -h && echo "done" > ' + temp, function(err, help) {
-            if (!err) isIo = /iojs/m.test(help);
-        });
+        exec(execPath + ' -h > ' + helpFile + '&& echo "done" > ' + doneFile);
 
-        while (!fs.existsSync(temp)) {}
-        fs.unlinkSync(temp);
+        while (!fs.existsSync(doneFile)) {}
+        var helpMessage = fs.readFileSync(helpFile, { encoding: 'ascii' });
+
+        isIo = /iojs\.org/.test(helpMessage);
+
+        fs.unlinkSync(helpFile);
+        fs.unlinkSync(doneFile);
     }
 
     return safeCheck = function() {
