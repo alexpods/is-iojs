@@ -1,19 +1,42 @@
-Determines if runtime is `iojs` or not. 
+# is-iojs
 
-There are two logics:
+is-iojs determines if runtime is io.js.
 
-1.Based on `process.version` (default logic):
+## Installation
 
-```js
+    $ npm install is-iojs
+
+## Quick start
+
+First you need to integrate is-iojs into your application.
+
+```javascript
 var isIojs = require('is-iojs');
-
-if (isIojs()) { /* runtime is iojs */ } else { /* runtime is node */ }
 ```
 
-2.Based on result of `node -h` help message (more reliable logic):
+Then you can call the `isIojs` function to determine whether the runtime is io.js or Node.js. If the function returns `true`, the platform is io.js; otherwise it is Node.js.
 
-```js
-var isIojs = require('is-iojs').reliable();
-
-if (isIojs()) { /* runtime is iojs */ } else { /* runtime is node */ } 
+```javascript
+if (isIojs()) {
+  console.log('io.js');
+} else {
+  console.log('Node.js');
+}
 ```
+
+## Running the build
+
+This module can be built using [Grunt](http://gruntjs.com/). Besides running the tests, this also analyses the code. To run Grunt, go to the folder where you have installed is-iojs and run `grunt`. You need to have [grunt-cli](https://github.com/gruntjs/grunt-cli) installed.
+
+    $ grunt
+
+## License
+
+The MIT License (MIT)
+Copyright (c) 2015 Aleksey Podskrebyshev.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
