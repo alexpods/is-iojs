@@ -14,13 +14,13 @@ First you need to integrate is-iojs into your application.
 var isIojs = require('is-iojs');
 ```
 
-Then you can call the `isIojs` function to determine whether the runtime is io.js or Node.js. If the function returns `true`, the platform is io.js; otherwise it is Node.js.
+Then you can use `isIojs` to determine whether the runtime is io.js or not. If it's `true`, the platform is io.js:
 
 ```javascript
-if (isIojs()) {
+if (isIojs) {
   console.log('io.js');
 } else {
-  console.log('Node.js');
+  console.log('not io.js');
 }
 ```
 
@@ -33,7 +33,7 @@ This module can be built using [Grunt](http://gruntjs.com/). Besides running the
 ## License
 
 The MIT License (MIT)
-Copyright (c) 2015 Aleksey Podskrebyshev.
+Copyright (c) 2015 Aleksey Podskrebyshev, Golo Roden.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -1,6 +1,6 @@
 {
   "name": "is-iojs",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "is-iojs determines if runtime is io.js.",
   "contributors": [
     {
@@ -13,9 +13,8 @@
     }
   ],
   "main": "lib/isIojs.js",
-  "dependencies": {},
   "devDependencies": {
-    "assertthat": "0.4.1",
+    "assertthat": "0.4.2",
     "grunt": "0.4.5",
     "proxyquire": "1.3.1",
     "tourism": "0.13.2"

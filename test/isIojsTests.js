@@ -10,7 +10,7 @@ suite('isIojs', function () {
 
   test('is a function.', function (done) {
     var isIojs = require('../lib/isIojs');
-    assert.that(isIojs).is.ofType('function');
+    assert.that(isIojs).is.ofType('boolean');
     done();
   });
 
@@ -24,11 +24,11 @@ suite('isIojs', function () {
       }
       /*eslint-enable camelcase*/
     });
-    assert.that(isIojs()).is.true();
+    assert.that(isIojs).is.true();
     done();
   });
 
-  test('returns false if runtime is Node.js.', function (done) {
+  test('returns false if runtime is not io.js.', function (done) {
     var isIojs = proxyquire('../lib/isIojs', {
       /*eslint-disable camelcase*/
       child_process: {
@@ -38,7 +38,7 @@ suite('isIojs', function () {
       }
       /*eslint-enable camelcase*/
     });
-    assert.that(isIojs()).is.false();
+    assert.that(isIojs).is.false();
     done();
   });
 });
