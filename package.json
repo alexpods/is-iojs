@@ -1,6 +1,6 @@
 {
   "name": "is-iojs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "is-iojs determines if runtime is io.js.",
   "contributors": [
     {
