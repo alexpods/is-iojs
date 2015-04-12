@@ -8,7 +8,7 @@ is-iojs determines if runtime is io.js.
 
 ## Quick start
 
-First you need to integrate is-iojs into your application.
+First you need to integrate is-iojs into your application:
 
 ```javascript
 var isIojs = require('is-iojs');
@@ -24,11 +24,14 @@ if (isIojs) {
 }
 ```
 
-## Running the build
+## Running the tests
 
-This module can be built using [Grunt](http://gruntjs.com/). Besides running the tests, this also analyses the code. To run Grunt, go to the folder where you have installed is-iojs and run `grunt`. You need to have [grunt-cli](https://github.com/gruntjs/grunt-cli) installed.
+Just clone this repository, install its dependencies and run `npm test` command:
 
-    $ grunt
+    $ git clone https://github.com/alexpods/is-iojs
+    $ cd is-iojs
+    $ npm install
+    $ npm test
 
 ## License
 

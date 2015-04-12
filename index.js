@@ -1,9 +1,9 @@
 'use strict';
 
-var cp = require('child_process');
+var execSync = require('child_process').execSync;
 
 module.exports = (function () {
-  if (!cp.execSync) {
+  if (!execSync) {
     return false;
   }
   /**
@@ -12,5 +12,6 @@ module.exports = (function () {
   if (~[ 'v1.0.0', 'v1.0.1' ].indexOf(process.version)) {
     return true;
   }
-  return /iojs\.org/.test(cp.execSync('"' + process.execPath + '" -h', { encoding: 'ascii' }));
+
+  return /iojs\.org/.test(execSync('"' + process.execPath + '" -h', { encoding: 'ascii' }));
 })();
